@@ -1,13 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body::-webkit-scrollbar {
+  width: 0;
+  display: none; /* Safari and Chrome */
+}
 body {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 11 */
+}
+body {
+  height: 100vh;
   margin: 0;
+  background-color: #67627a;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#root{
+  height: 100vh;
+}
+.card-login{
+  width: 60vw;
+  max-width: 1000px;
+  max-height: 800px;
+  height: 70vh;
+  background: #2b2738;
+  border-radius: 10px;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  transition: border-radius 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.login-shadow {
+
+  box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1),
+              0 0  0 2px rgb(43, 39, 58),
+              0.3em 0.3em 1em rgba(0,0,0,0.3),
+              0 0 10px rgba(0,0,0,0.2);
+  transform-style: preserve-3d;
+  perspective: 1000px;
+
+ }
+ .login-shadow2{
+
+  box-shadow: inset 0 -3em 3em rgba(188, 140, 242, 0.1),
+              0 0  0 2px rgb(79, 69, 112),
+              0.3em 0.3em 1em rgba(107, 81, 160, 0.3),
+              0 0 10px rgba(73, 49, 96, 0.2);
+  transform-style: preserve-3d;
+  perspective: 1000px;
+
+ }
+ .container-login{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  padding: 20px;
+ }
+ .header-cust{
+  transform-style: preserve-3d;
+  perspective: 3000px;
+ }
+ .background-app-dark{
+  background: #2b2738;
+ }
+ .card-dash {
+  width: 350px;
+  height: 400px;
+  background: #fbfaff;
+  border-radius: 10px;
+  transition: border-radius 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+ }
+ 
+ .shadow-dash {
+  /* box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1),
+              0 0  0 2px rgb(190, 190, 190),
+              0.3em 0.3em 1em rgba(0,0,0,0.3); */
+  /* border-radius: 26px;
+  background: #fbfaff;
+  box-shadow:  -14px -14px 28px #bcbcbc,
+                14px 14px 28px #ffffff; */
+
+  border-radius: 37px;
+  background: #fbfaff;
+  box-shadow:  11px 11px 46px #d0d0d0,
+  -11px -11px 46px #f0f0f0;
+ }
+ .msg-container{
+  border-radius: 8px;
+  background: #e0daf8;
+  box-shadow:  -33px 33px 66px #ffffff,
+              33px -33px 66px #ffffff;
+ }

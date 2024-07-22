@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'; // Ensure this is imported if you want to keep custom styles
+import ErrorBoundary from './Error/error';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Login from './login/loginForm';
+import Error from './Error/errorPage';
+import ProtectedRoute from './login/protectedRoute';
+import Dashboard from './dashboard/dashboard';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <ErrorBoundary>
+      </ErrorBoundary>
+      <Router>
+            <Routes>
+                <Route path="/" default name="LoginCopy" element={<Login/>} />
+                <Route path="/" element={<ProtectedRoute />}>
+                  <Route path='/dashboard' element={<Dashboard />} />
+                </Route>
+                <Route path="/error" element={<Error/>} />
+            </Routes>
+      </Router>
+    </>
   );
 }
 
