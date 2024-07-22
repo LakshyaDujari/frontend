@@ -3,6 +3,7 @@ import RequestTile from './requestTile'
 import { toast } from 'react-toastify';
 import axiosInstance from '../axio-config/axiosConfig';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
+import DemoSocketComponent from '../socketFiles/demoSocketComponent';
 
 export default function Message() {
     const msgApis = '/messaging/get_all_groups/';
@@ -120,34 +121,16 @@ export default function Message() {
             </div>
         }
         {( messages.length > 0 && boxClick ) && 
-            <div className='scrollbar-hide msg-container fixed bottom-0 left-24 w-80 h-96 z-50 flex justify-start place-items-start flex-col p-5 gap-2 overflow-x-hidden' onBlur={(e)=>{setBoxClick(false);setGroupMessages('');setMsg('');setCurrentGroup(0)}}> 
-                {/* message box header */}
-                <div className="flex flex-row">
-                    <FiberManualRecordIcon className={`text-${dcolor}-500 relative`}/>
-                    <h1 className='text-sm text-gray-600'>{messages[currentGroup].friend}</h1>
-                </div>
-                {/* message box */}
-                <div className='w-full h-80 bg-gray-100 rounded-lg gap-3 overflow-scroll scrollbar-hide'>
-                    {/* message */}
-                    {groupMssages.map((msg, index) => (
-                        <div className='flex flex-col gap-2 p-2'>
-                            <p className='text-sm text-gray-600'>{msg.body}</p>
-                            <p className='text-xs text-gray-400'>{msg.timestamp}</p>
-                            <p className='text-xs text-gray-400'>{msg.author}</p>
-                        </div>
-                    ))}
-                </div>
-                {/* message input */}
-                <form class="form relative mt-2 w-full" onSubmit={handleMsgSubmit}>
-                    <input
-                        class=" w-full h-8 input rounded-full px-8 py-3 border-2 border-transparent focus:outline-none focus:border-blue-500 placeholder-gray-400 transition-all duration-300 shadow-md"
-                        placeholder="Type your message..."
-                        required=""
-                        type="text"
-                        value={msg}
-                        onChange={(e) => setMsg(e.target.value)}
-                    />
-                </form>
+            <div className='border-r-2 scrollbar-hide fixed bottom-0 left-16 w-96 h-96 z-50 overflow-x-hidden' onBlur={(e)=>{setBoxClick(false);setGroupMessages('');setMsg('');setCurrentGroup(0)}}> 
+                <DemoSocketComponent
+                    groupMssages={groupMssages}
+                    setGroupMessages={setGroupMessages}
+                    messages={messages}
+                    setMessages={setMessages}
+                    dcolor={dcolor}
+                    setDcolor={setDcolor}
+                    currentGroup={currentGroup}
+                />
             </div>
         }
     </>

@@ -5,7 +5,7 @@ import Login from './login/loginForm';
 import Error from './Error/errorPage';
 import ProtectedRoute from './login/protectedRoute';
 import Dashboard from './dashboard/dashboard';
-
+import DemoSocketComponent from './socketFiles/demoSocketComponent';
 function App() {
   return (
     <>
@@ -16,6 +16,7 @@ function App() {
                 <Route path="/" default name="LoginCopy" element={<Login/>} />
                 <Route path="/" element={<ProtectedRoute />}>
                   <Route path='/dashboard' element={<Dashboard />} />
+                  {/* <Route path='/sockettest' element={<DemoSocketComponent />} /> */}
                 </Route>
                 <Route path="/error" element={<Error/>} />
             </Routes>
