@@ -1,28 +1,29 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState,useContext } from 'react';
 import HeadsetMicIcon from '@mui/icons-material/HeadsetMic';
-import axiosInstance from '../axio-config/axiosConfig';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
-import { clear, setData } from '../redux/Slice/dataSlice';
+import useAxios from '../axio-config/axiosConfig';
+import { setData } from '../redux/Slice/dataSlice';
+import AuthContext from '../login/authContext';
 
 export default function Header() {
-    const logout_api = '/login/logout_user/';
+    const {logoutUser} = useContext(AuthContext)
+    const logout_api = '/login/logout/';
     const search_api = '/login/get_user_list/'; // Update with your search endpoint
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const axiosInstance = useAxios();
     const [searchInput, setSearchInput] = useState('');
     const [suggestions, setSuggestions] = useState([]);
     const [showSuggestions, setShowSuggestions] = useState(false);
 
     const handleLogout = async () => {
         try {
-            const response = await axiosInstance.post(logout_api);
+            const payload = { refresh_token: localStorage.getItem('refresh') };
+            const response = await axiosInstance.post(logout_api,payload);
             if (response.status === 200) {
-                localStorage.clear();
-                dispatch(clear());
-                toast.success('Logout Successfully');
-                navigate('/');
+                logoutUser();
             } else {
                 toast.error('Invalid Credentials');
             }
@@ -71,7 +72,7 @@ export default function Header() {
     const handleSuggestionClick = (suggestion) => {
         for (let i = 0; i < suggestions.length; i++) {
             if (suggestions[i].username === suggestion) {
-                dispatch(setData({username:suggestions[i].username, email:suggestions[i].email, id:suggestions[i].id, friend:suggestions[i].friend}));
+                dispatch(setData({user_id:suggestions[i].user_id,email:suggestions[i].email,username:suggestions[i].username,fullname:suggestions[i].fullname,phone:suggestions[i].phone,bio:suggestions[i].bio,image:suggestions[i].image,verified:suggestions[i].verified}));
                 break;
             }
         }

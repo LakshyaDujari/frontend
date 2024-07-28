@@ -7,14 +7,14 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectData, setData } from '../redux/Slice/dataSlice';
 import { toast } from 'react-toastify';
-import axiosInstance from '../axio-config/axiosConfig';
+import useAxios from '../axio-config/axiosConfig';
 export default function Sidebar() {
-    // const user = localStorage.getItem('username');
-    // const email = localStorage.getItem('email');
-    const storeValue = useSelector(selectData);
+    const storeValue = useSelector(selectData)
     const navigate = useNavigate();
-    const [user,setUserName] = useState(storeValue.username);
+    const [user,setUserName] = useState(storeValue.fullname);
     const [email,setEmail] = useState(storeValue.email);
+    const [bio,setBio] = useState(storeValue.bio);
+    const axiosInstance = useAxios();
     const [isFriend,setIsFriend] = useState(false);
     const friendRequestApi = '/friend/add_friend/';
     const dispatch = useDispatch();
@@ -42,7 +42,7 @@ export default function Sidebar() {
     }
 
     const handleHomeClick = () => {
-        dispatch(setData({ username: localStorage.getItem('username'), email: localStorage.getItem('email'), id: localStorage.getItem('id'),friend:true}));
+        dispatch(setData({user_id:localStorage.getItem('user_id'),email:localStorage.getItem('email'),username:localStorage.getItem('username'),fullname:localStorage.getItem('fullname'),phone:localStorage.getItem('phone'),bio:localStorage.getItem('bio'),image:localStorage.getItem('image'),verified:localStorage.getItem('verified')}));
         navigate('/dashboard');
     }
 
@@ -54,6 +54,7 @@ export default function Sidebar() {
                 <div class="z-10  group-hover:-translate-y-10 transition-all duration-500">
                     <span class="text-2xl font-semibold group-hover:text-white transition-all duration-75">{user || 'Guest'}</span>
                     <p className=' group-hover:text-white transition-all duration-75'>{email || 'guest@example.com'}</p>
+                    <p className=' group-hover:text-white transition-all duration-75'>{bio || 'guest@example.com'}</p>
                 </div>
                 {/* Follow Button */}
                 {!isFriend && (

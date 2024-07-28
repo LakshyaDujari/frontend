@@ -6,7 +6,7 @@ export default function DemoSocketComponent({groupMssages,setGroupMessages,messa
     const [msg,setMsg] = useState('');
     const user = localStorage.getItem('username');
     const group_name = messages[currentGroup].group_name;
-    const socket = new WebSocket(`ws://localhost:8000/ws/chat/${group_name}/${user}/`)
+    const socket = new WebSocket(`ws://localhost:8000/ws/chat/${group_name}/`)
 
     // Connection opened
     socket.addEventListener("open", event => {
@@ -38,7 +38,7 @@ export default function DemoSocketComponent({groupMssages,setGroupMessages,messa
                 <FiberManualRecordIcon className={`text-${dcolor}-500 relative`}/>
                 <h1 className='text-sm text-gray-600'>{messages[currentGroup].friend}</h1>
             </div>
-            <a href="#" class="block w-80 h-auto p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+            <a href="#" class="block w-96 h-auto p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
                 <div class="flex flex-col items-start gap-2.5 relative h-full">
                 {groupMssages.length > 0 &&
                     groupMssages.map((msg, index) => (
@@ -60,7 +60,7 @@ export default function DemoSocketComponent({groupMssages,setGroupMessages,messa
                     <input 
                         type="text" 
                         id="first_name" 
-                        class="fixed w-72 left-28 bottom-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
+                        class="fixed w-80 left-24 bottom-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
                         placeholder="send message" 
                         required 
                         value={msg}

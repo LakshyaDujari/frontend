@@ -1,18 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState,useContext } from 'react'
 import login_back from '../assets/login_template.png'
-import axiosInstance from '../axio-config/axiosConfig';
-import { toast } from 'react-toastify';
-import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { setData } from '../redux/Slice/dataSlice';
+import AuthContext from '../login/authContext';
 
 export default function Login() {
-  const login_api = `/login/login_user`;
-  const create_user = '/login/create/';
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const {loginUser} = useContext(AuthContext)
   const [handleForm,setHandleForm] = useState({
-    username:'',
+    email:'',
     password:''
   });
   const inputHandler = (e) => {
@@ -29,26 +22,7 @@ export default function Login() {
   
   const submitHandler = async (e) => {
     e.preventDefault();
-    try{
-      const payload = {
-        ...handleForm,
-      }
-      const response = await axiosInstance.post(login_api,payload);
-      if(response.status === 200){
-        dispatch(setData({username:response.data.username,email:response.data.email,id:response.data.id,friend:true}));
-        localStorage.setItem('token',response.data.token);
-        localStorage.setItem('session_id',response.data.temp);
-        localStorage.setItem('id',response.data.id);
-        localStorage.setItem('username',response.data.username);
-        localStorage.setItem('email',response.data.email);
-        toast.success('Login Successfully');
-        navigate('/dashboard');
-      }else{
-        toast.error('Invalid Credentials');
-      }
-    }catch(error){
-      toast.error(Object.values(error.response.data)[0])
-    }
+    await loginUser(handleForm.email,handleForm.password);
   }
     return (
       <>
@@ -80,8 +54,9 @@ export default function Login() {
                           type="text" 
                           id="email" 
                           class="rounded border border-gray-200 text-sm w-full font-normal leading-[18px] text-black tracking-[0px] appearance-none block h-11 m-0 p-[11px] focus:ring-2 ring-offset-2  ring-gray-900 outline-0"
-                          value={handleForm.username}
-                          name='username'
+                          value={handleForm.email}
+                          name='email'
+                          placeholder='Enter your email'
                           onChange={inputHandler}/>
                       </div>
                       <div class="block relative"> 
@@ -91,6 +66,7 @@ export default function Login() {
                           class="rounded border border-gray-200 text-sm w-full font-normal leading-[18px] text-black tracking-[0px] appearance-none block h-11 m-0 p-[11px] focus:ring-2 ring-offset-2 ring-gray-900 outline-0"
                           value={handleForm.password}
                           name='password'
+                          placeholder='Enter your password'
                           onChange={inputHandler}/>
                       </div>
                       <div>

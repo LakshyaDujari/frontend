@@ -1,14 +1,18 @@
 import React, { useEffect, useRef, useState } from 'react'
 import UploadFileIcon from '@mui/icons-material/UploadFile';
+import { useSelector } from 'react-redux';
 import DeleteIcon from '@mui/icons-material/Delete';
 import BlogPost from './blogpost';
-import axiosInstance from '../axio-config/axiosConfig';
+import useAxios from '../axio-config/axiosConfig';
 import { toast } from 'react-toastify';
+import { selectData } from '../redux/Slice/dataSlice';
 
 export default function Blog() {
+    const storeValue = useSelector(selectData);
     const [blogsCount, setBlogsCount] = useState(34);
     const [friendsCount, setFriendsCount] = useState(100);
     const [blog_posts, setBlogPosts] = useState([]);
+    const axiosInstance = useAxios();
     const blogApi = '/blog/get/';
     const createBlogApi = '/blog/create/';
     const friendsApi = '/friend/get_all_friends/';
@@ -104,18 +108,41 @@ export default function Blog() {
         });
     }
 
-    async function getBlogs() {
-        try{
-            const response = await axiosInstance.get(blogApi);
-            if(response.status === 200){
-                setBlogsCount(response.data.length);
-                setBlogPosts(response.data);
-                renderBlogPosts();
+    useEffect(() => {
+        getBlogs(storeValue.user_id);
+    },[storeValue])
+
+    async function getBlogs(user_id) {
+        if(user_id !== null || user_id !== undefined || user_id !== '' ){
+            const paylpoad = {
+                userId: user_id,
             }
-        }catch(error){
-            const errormsg = Object.values(error.response.data)[0];
-            toast.error(errormsg);
-        }
+            try{
+                const response = await axiosInstance.post(blogApi,paylpoad);
+                if(response.status === 200){
+                    setBlogsCount(response.data.length);
+                    setBlogPosts(response.data);
+                    renderBlogPosts();
+                }
+            }catch(error){
+                const errormsg = Object.values(error.response.data)[0];
+                toast.error(errormsg);
+            }
+        }else{
+            if(localStorage.getItem('token') !== null || localStorage.getItem('token') !== undefined || localStorage.getItem('token') !== ''){            
+                try{
+                    const response = await axiosInstance.get(blogApi);
+                    if(response.status === 200){
+                        setBlogsCount(response.data.length);
+                        setBlogPosts(response.data);
+                        renderBlogPosts();
+                    }
+                }catch(error){
+                    const errormsg = Object.values(error.response.data)[0];
+                    toast.error(errormsg);
+                }
+            }
+        } 
     }
 
     async function getFriends() {

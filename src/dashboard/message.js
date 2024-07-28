@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import RequestTile from './requestTile'
 import { toast } from 'react-toastify';
-import axiosInstance from '../axio-config/axiosConfig';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
+import useAxios from '../axio-config/axiosConfig';
 import DemoSocketComponent from '../socketFiles/demoSocketComponent';
 
 export default function Message() {
@@ -14,6 +14,7 @@ export default function Message() {
     const [boxClick,setBoxClick] = useState(false);
     const [groupMssages, setGroupMessages] = useState([]);
     const [msg, setMsg] = useState('');
+    const axiosInstance = useAxios();
     
     const handleMsgSubmit = async (e) => {
         e.preventDefault();
@@ -50,7 +51,7 @@ export default function Message() {
     useEffect(() => {
         async function fetchData(){
             try{
-               const fullUrl = axiosInstance.defaults.baseURL + msgApis; 
+               const fullUrl = 'http://127.0.0.1:8000'+ msgApis; 
                 const response = await axiosInstance.get(msgApis);
                 if(response.status === 200){
                     setMessages(response.data.groups);

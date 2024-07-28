@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import FriendRequestTile from './friendrequestile'
-import axiosInstance from '../axio-config/axiosConfig';
+import useAxios from '../axio-config/axiosConfig';
 import { toast } from 'react-toastify';
 
 export default function RequestModal() {
     const requestApis = '/friend/get_friend_request/';   
     const [requests, setRequests] = useState([]);
+    const axiosInstance = useAxios();
     useEffect(() => {
         async function fetchData(){
             try{
@@ -13,7 +14,7 @@ export default function RequestModal() {
                 if(response.status === 200){
                     setRequests(response.data.friend_requests);
                 }
-            }catch(error){
+           }catch(error){
                 const message = error.response.data.message;
                 toast.error(message);
             }
