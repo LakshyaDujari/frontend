@@ -13,6 +13,7 @@ export default AuthContext
 export const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const apiPrefix = process.env.REACT_APP_API_PREFIX;
 
   const [authTokens, setAuthTokens] = useState({
     access: localStorage.getItem("token") ? localStorage.getItem("token") : null,
@@ -45,7 +46,7 @@ const [user, setUser] = useState(() =>
     const [loading, setLoading] = useState(true);
 
     const loginUser = async (email, password) => {
-        const loginApi = "http://127.0.0.1:8000/login/token/";
+        const loginApi =  `${process.env.REACT_APP_API_PREFIX}/login/token/`;
         try{
             const payload = {
                 email:email,
@@ -58,9 +59,7 @@ const [user, setUser] = useState(() =>
             });
 
           if(response.status === 200){
-            console.log("Logged In");
             const data = response.data
-            console.log(data);
             setAuthTokens(data)
             setUser(jwtDecode(data.access))
             localStorage.setItem("authTokens", data)
@@ -82,7 +81,6 @@ const [user, setUser] = useState(() =>
             toast.success('Login Successfully');
             navigate('/dashboard');
           } else {    
-              console.log(response.status);
               console.log("there was a server issue");
               toast.error('Invalid Credentials');
           }
@@ -93,7 +91,7 @@ const [user, setUser] = useState(() =>
     }
 
     const registerUser = async (email, username, password, password2) => {
-        const response = await fetch("http://127.0.0.1:8000/login/register/", {
+        const response = await fetch( apiPrefix + "/login/register/", {
             method: "POST",
             headers: {
                 "Content-Type":"application/json"

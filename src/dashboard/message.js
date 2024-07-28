@@ -51,11 +51,10 @@ export default function Message() {
     useEffect(() => {
         async function fetchData(){
             try{
-               const fullUrl = 'http://127.0.0.1:8000'+ msgApis; 
+               const fullUrl = process.env.REACT_APP_API_PREFIX + msgApis; 
                 const response = await axiosInstance.get(msgApis);
                 if(response.status === 200){
                     setMessages(response.data.groups);
-                    console.log(response.data.groups);
                 }
             }catch(error){
                 const message = error.response.data.message;
@@ -121,8 +120,8 @@ export default function Message() {
                 <h1 className='text-sm text-gray-600'>{messages[currentGroup].friend}</h1>
             </div>
         }
-        {( messages.length > 0 && boxClick ) && 
-            <div className='border-r-2 scrollbar-hide fixed bottom-0 left-16 w-96 h-96 z-50 overflow-x-hidden' onBlur={(e)=>{setBoxClick(false);setGroupMessages('');setMsg('');setCurrentGroup(0)}}> 
+        {( messages.length >= 0 && boxClick ) && 
+            
                 <DemoSocketComponent
                     groupMssages={groupMssages}
                     setGroupMessages={setGroupMessages}
@@ -131,8 +130,9 @@ export default function Message() {
                     dcolor={dcolor}
                     setDcolor={setDcolor}
                     currentGroup={currentGroup}
+                    setBoxClick={setBoxClick}
+                    setCurrentGroup={setCurrentGroup}
                 />
-            </div>
         }
     </>
  )

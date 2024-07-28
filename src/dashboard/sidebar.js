@@ -28,7 +28,7 @@ export default function Sidebar() {
     const handleInvite = async () => {
         try{
             const payload = {
-                friend_id: storeValue.id,
+                friend_id: storeValue.user_id,
             }
             const response = await axiosInstance.post(friendRequestApi,payload);
             if(response.status === 200){

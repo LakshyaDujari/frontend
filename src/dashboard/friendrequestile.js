@@ -1,10 +1,11 @@
 import React from 'react'
 import { toast } from 'react-toastify';
-import axiosInstance from '../axio-config/axiosConfig';
+import useAxios from '../axio-config/axiosConfig';
 
 export default function FriendRequestTile({name, email, id, setRequests, requests}) {
     const accept_api = '/friend/accept_friend_request/';
     const reject_api = '/friend/reject_friend_request/';
+    const axiosInstance = useAxios();
 
     const handleReject = async () => {
         try{
@@ -29,11 +30,12 @@ export default function FriendRequestTile({name, email, id, setRequests, request
     const handleAccept = async () => {
         try{
             const payload = {
-                'friend_id': name,
+                'friend_id': id,
             }
             const response = await axiosInstance.post(accept_api, payload);
             if(response.status === 200){
                 toast.success('Friend request accepted');
+                setRequests(requests.filter((req) => req.friend_id !== id));
             }
         }catch(error){
             const errMsg = Object.values(error.response.data)[0];

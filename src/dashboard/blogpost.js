@@ -1,7 +1,7 @@
 import React ,{useState} from "react";
 import { Carosel } from "./carasel";
 export default function BlogPost(
-    { title, content, author, date, images }
+    { title, content, images }
 ) {
     const [bheight, setBheight] = useState(40);
     return (
@@ -27,7 +27,6 @@ export default function BlogPost(
                             setBheight('auto');
                         else
                             setBheight('40');
-                        
                     }}
                     >
                     Read more

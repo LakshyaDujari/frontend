@@ -59,6 +59,7 @@ export default function RequestModal() {
                         key={index}
                         name={req.username}
                         email={req.email}
+                        id={req.friend_id}
                         requestSetter = {setRequests}
                         requests={requests}
                     />

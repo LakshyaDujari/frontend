@@ -1,10 +1,10 @@
 import React from 'react'
 import SendIcon from '@mui/icons-material/Send';
 import { toast } from 'react-toastify';
-import axiosInstance from '../axio-config/axiosConfig';
+import useAxios from '../axio-config/axiosConfig';
 
 export default function RequestTile( { id,name,email,selected,boxClick,setGrpMsg } ) {
-
+    const axiosInstance = useAxios();
     const getGroupMsgApi = '/messaging/chatwindow/';
 
     const handleClick = async () => {

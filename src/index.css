@@ -104,3 +104,12 @@ code {
   box-shadow:  -33px 33px 66px #ffffff,
               33px -33px 66px #ffffff;
  }
+ .user-self-message{
+  display: flex;
+  text-align: end;
+  width: 100%;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex-wrap: nowrap;
+  align-items: flex-end;
+ }

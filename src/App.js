@@ -6,6 +6,7 @@ import Error from './Error/errorPage';
 import Dashboard from './dashboard/dashboard';
 import PrivateRoute from './login/protectedRoute';
 import { AuthProvider } from './login/authContext';
+import DemoSocketComponent from './socketFiles/demoSocketComponent';
 function App() {
   return (
     <>
@@ -17,6 +18,7 @@ function App() {
                 <Route path="/" default name="LoginCopy" element={<Login/>} />
                 <Route element={<PrivateRoute />}>
                     <Route path="/dashboard" element={<Dashboard />} />
+                    <Route path="/socket" element={<DemoSocketComponent />}/>
                 </Route>
                 <Route path="/error" element={<Error/>} />
             </Routes>
