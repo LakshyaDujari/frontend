@@ -17,7 +17,7 @@ export default function Login() {
   }
 
   useEffect(() => {
-    document.body.style.backgroundColor = '#67627a';
+    document.body.style.backgroundColor = '#676279';
   }, [])
   
   const submitHandler = async (e) => {

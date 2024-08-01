@@ -2,7 +2,7 @@ import React from 'react'
 import { toast } from 'react-toastify';
 import useAxios from '../axio-config/axiosConfig';
 
-export default function FriendRequestTile({name, email, id, setRequests, requests}) {
+export default function FriendRequestTile({name, email, id, requestSetter, requests}) {
     const accept_api = '/friend/accept_friend_request/';
     const reject_api = '/friend/reject_friend_request/';
     const axiosInstance = useAxios();
@@ -15,7 +15,8 @@ export default function FriendRequestTile({name, email, id, setRequests, request
             const response = await axiosInstance.post(reject_api, payload);
             if(response.status === 200){
                 toast.success('Friend request rejected');
-                setRequests(requests.filter((req) => req.username !== name));
+                requestSetter(requests.filter((req) => req.friend_id !== id));
+
             }
         }catch(error){
             if(error.response){
@@ -35,7 +36,7 @@ export default function FriendRequestTile({name, email, id, setRequests, request
             const response = await axiosInstance.post(accept_api, payload);
             if(response.status === 200){
                 toast.success('Friend request accepted');
-                setRequests(requests.filter((req) => req.friend_id !== id));
+                requestSetter(requests.filter((req) => req.friend_id !== id));
             }
         }catch(error){
             const errMsg = Object.values(error.response.data)[0];

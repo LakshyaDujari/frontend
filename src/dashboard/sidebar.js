@@ -48,13 +48,13 @@ export default function Sidebar() {
 
 
     return (
-        <div class="flex flex-col w-80 h-full bg-slate-50 gap-4 p-4 rounded-2xl">
-            <div class="group before:hover:scale-95 before:hover:h-72 before:hover:w-80 before:hover:h-44 before:hover:rounded-b-2xl before:transition-all before:duration-500 before:content-[''] before:w-80 before:h-24 before:rounded-t-2xl before:bg-gradient-to-bl from-purple-200 via-purple-300 to-purple-400 before:absolute before:top-0 w-80 h-72 relative bg-slate-50 flex flex-col items-center justify-center gap-2 text-center rounded-2xl overflow-hidden shadow-dash">
-                <div class="w-28 h-28 background-app-dark mt-8 rounded-full border-4 border-slate-50 z-10 group-hover:scale-150 group-hover:-translate-x-24  group-hover:-translate-y-20 transition-all duration-500"></div>
+        <div class="flex flex-col w-1/4 h-full bg-slate-50 gap-4 p-4 rounded-2xl">
+            <div class="group before:hover:scale-95 before:hover:h-72 before:hover:w-full max-w-72 before:hover:h-44 before:hover:rounded-b-2xl before:transition-all before:duration-500 before:content-[''] before:w-full before:h-24 before:rounded-t-2xl before:bg-gradient-to-bl from-purple-200 via-purple-300 to-purple-400 before:absolute before:top-0 w-full h-72 relative bg-slate-50 flex flex-col items-center justify-center gap-2 text-center rounded-2xl overflow-hidden shadow-dash">
+                <div class="w-1/3 h-1/3 background-app-dark mt-8 rounded-full border-4 border-slate-50 z-10 group-hover:scale-150 group-hover:-translate-x-24  group-hover:-translate-y-20 transition-all duration-500"></div>
                 <div class="z-10  group-hover:-translate-y-10 transition-all duration-500">
-                    <span class="text-2xl font-semibold group-hover:text-white transition-all duration-75">{user || 'Guest'}</span>
-                    <p className=' group-hover:text-white transition-all duration-75'>{email || 'guest@example.com'}</p>
-                    <p className=' group-hover:text-white transition-all duration-75'>{bio || 'guest@example.com'}</p>
+                    <span class="text-2xl sm:text-lg font-semibold group-hover:text-white transition-all duration-75">{user || 'Guest'}</span>
+                    <p className=' group-hover:text-white sm:text-xs transition-all duration-75'>{email || 'guest@example.com'}</p>
+                    <p className=' group-hover:text-white sm:text-xs transition-all duration-75'>{bio || 'guest@example.com'}</p>
                 </div>
                 {/* Follow Button */}
                 {!isFriend && (
@@ -63,7 +63,7 @@ export default function Sidebar() {
                 )}
             </div>
             {/* home Button */}
-            <div class="flex flex-col gap-2 w-60 sm:w-80 sm:text-s z-50 shadow-lg mt-4" 
+            <div class="flex flex-col gap-2 w-11/12 max-w-72 sm:w-11/12 sm:text-s z-50 shadow-lg mt-4 " 
             onClick={handleHomeClick}>
                 <div
                     class="succsess-alert cursor-default flex items-center justify-between w-full h-12 sm:h-14 rounded-lg background-app-dark px-[10px]"
@@ -77,7 +77,7 @@ export default function Sidebar() {
                 </div>
             </div>
             {/* Bookmark Button */}
-            <div class="flex flex-col gap-2 w-60 sm:w-80 sm:text-s z-50 shadow-lg">
+            <div class="flex flex-col gap-2 w-11/12 max-w-72 sm:w-11/12 sm:text-s z-50 shadow-lg">
                 <div
                     class="succsess-alert cursor-default flex items-center justify-between w-full h-12 sm:h-14 rounded-lg background-app-dark px-[10px]"
                 >
@@ -90,7 +90,7 @@ export default function Sidebar() {
                 </div>
             </div>
             {/* Settings Button */}
-            <div class="flex flex-col gap-2 w-60 sm:w-80 sm:text-s z-50 shadow-lg">
+            <div class="flex flex-col gap-2 w-11/12 max-w-72 sm:w-11/12 sm:text-s z-50 shadow-lg">
                 <div
                     class="succsess-alert cursor-default flex items-center justify-between w-full h-12 sm:h-14 rounded-lg background-app-dark px-[10px]"
                 >
@@ -103,7 +103,7 @@ export default function Sidebar() {
                 </div>
             </div>
             {/* Profile Button */}
-            <div class="flex flex-col gap-2 w-60 sm:w-80 sm:text-s z-50 shadow-lg">
+            <div class="flex flex-col gap-2 w-11/12 max-w-72 sm:w-11/12 sm:text-s z-50 shadow-lg">
                 <div
                     class="succsess-alert cursor-default flex items-center justify-between w-full h-12 sm:h-14 rounded-lg background-app-dark px-[10px]"
                 >

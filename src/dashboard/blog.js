@@ -113,7 +113,7 @@ export default function Blog() {
     },[storeValue])
 
     async function getBlogs(user_id) {
-        if(user_id !== null || user_id !== undefined || user_id !== '' ){
+        if(user_id !== null && user_id !== undefined && user_id !== "" ){
             const paylpoad = {
                 userId: user_id,
             }
@@ -129,7 +129,7 @@ export default function Blog() {
                 toast.error(errormsg);
             }
         }else{
-            if(localStorage.getItem('token') !== null || localStorage.getItem('token') !== undefined || localStorage.getItem('token') !== ''){            
+            if(localStorage.getItem('token') !== null && localStorage.getItem('token') !== undefined && localStorage.getItem('token') !== ''){            
                 try{
                     const response = await axiosInstance.get(blogApi);
                     if(response.status === 200){
@@ -163,11 +163,11 @@ export default function Blog() {
     }, [blogApi, friendsApi]);
 
     return (
-        <div className="flex flex-col h-full w-3/5 overflow-y-scroll scrollbar-hide items-center scroll-smooth">
+        <div className="flex flex-col h-full w-3/5 sm:w-1/2 overflow-y-scroll scrollbar-hide items-center scroll-smooth">
             {/* top cards for stats */}
             <div className="flex flex-row gap-8 justify-center mt-4">
                 <div
-                class="hover:-translate-y-2 group bg-neutral-50 duration-500 w-44 h-44 flex text-neutral-600 flex-col justify-center items-center relative rounded-xl overflow-hidden shadow-md"
+                class="hover:-translate-y-2 group bg-neutral-50 duration-500 w-48 sm:w-32 h-48 sm:h-32 flex text-neutral-600 flex-col justify-center items-center relative rounded-xl overflow-hidden shadow-md"
                 >
                 <svg
                     viewBox="0 0 200 200"
@@ -186,7 +186,7 @@ export default function Blog() {
                 </div>
                 </div>
                 <div
-                class="hover:-translate-y-2 group bg-neutral-50 duration-500 w-44 h-44 flex text-neutral-600 flex-col justify-center items-center relative rounded-xl overflow-hidden shadow-md"
+                class="hover:-translate-y-2 group bg-neutral-50 duration-500 w-48 h-48 sm:w-32 sm:h-32 flex text-neutral-600 flex-col justify-center items-center relative rounded-xl overflow-hidden shadow-md"
                 >
                 <svg
                     viewBox="0 0 200 200"
@@ -205,7 +205,7 @@ export default function Blog() {
                 </div>
                 </div>
                 <div
-                class="hover:-translate-y-2 group bg-neutral-50 duration-500 w-44 h-44 flex text-neutral-600 flex-col justify-center items-center relative rounded-xl overflow-hidden shadow-md"
+                class="hover:-translate-y-2 group bg-neutral-50 duration-500 w-48 h-48 sm:w-32 sm:h-32 flex text-neutral-600 flex-col justify-center items-center relative rounded-xl overflow-hidden shadow-md"
                 >
                 <svg
                     viewBox="0 0 200 200"
@@ -225,7 +225,7 @@ export default function Blog() {
                 </div>
             </div>
             {/* blog posting */}
-            <div class="bg-white border border-slate-200 grid grid-cols-6 gap-2 rounded-xl p-2 text-sm mt-5 w-3/4">
+            <div class="bg-white border border-slate-200 grid grid-cols-6 gap-2 rounded-xl p-2 text-sm mt-5 w-4/5">
                 <h1 class="text-center text-slate-200 text-xl font-bold col-span-6">Share Your Thoughts</h1>
                 <input 
                     type="text" 

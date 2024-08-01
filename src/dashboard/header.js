@@ -33,7 +33,7 @@ export default function Header() {
     };
 
     const handleHomeClick = () => {
-        dispatch(setData({ username: localStorage.getItem('username'), email: localStorage.getItem('email'), id: localStorage.getItem('id'),friend:true}));
+        dispatch(setData({user_id:localStorage.getItem('user_id'),email:localStorage.getItem('email'),username:localStorage.getItem('username'),fullname:localStorage.getItem('fullname'),phone:localStorage.getItem('phone'),bio:localStorage.getItem('bio'),image:localStorage.getItem('image'),verified:localStorage.getItem('verified')}));
         navigate('/dashboard');
     }
 

@@ -102,7 +102,7 @@ const [user, setUser] = useState(() =>
         })
         if(response.status === 201){
             // history.push("/login")
-            navigate("/");
+            // navigate("/");
             toast.success('Account Created Successfully');
         } else {
             console.log(response.status);

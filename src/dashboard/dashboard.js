@@ -10,12 +10,12 @@ export default function Dashboard() {
     }, [])
     return (
       <>
-        <div className="flex flex-col relative"></div>
+        <div className="flex flex-col relative w-screen"></div>
           <Header />
           <div className="flex flex-row h-full w-11/12 gap-8 p-6 mr-14 ml-14 overflow-x-scrool mt-14 top-5 fixed mb-14">
               <Sidebar />
               <Blog/>
-              <div className="flex flex-col place-content-start gap-10">
+              <div className="flex flex-col place-content-start gap-10 sm:w-1/5">
                   <Message />
                   <RequestModal />
               </div>

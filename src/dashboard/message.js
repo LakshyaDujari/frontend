@@ -67,7 +67,7 @@ export default function Message() {
   return (
     <>
          {/* Message request box */}
-        <div class="card-dash shadow-dash p-4 flex flex-col">
+        <div class="card-dash shadow-dash p-4 flex flex-col sm:w-full sm:h-2/5">
             <h1 className='text-3xl font-bold text-gray-600 text-center mb-3 mt-2 '> Messages </h1>
             {/* search bar */}
             <form class="form relative mt-2 w-full">
