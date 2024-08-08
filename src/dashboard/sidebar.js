@@ -46,6 +46,9 @@ export default function Sidebar() {
         navigate('/dashboard');
     }
 
+    const handleProfileClick = () => {
+        navigate('/profile');
+    }
 
     return (
         <div class="flex flex-col w-1/4 h-full bg-slate-50 gap-4 p-4 rounded-2xl">
@@ -76,16 +79,16 @@ export default function Sidebar() {
                     </div>
                 </div>
             </div>
-            {/* Bookmark Button */}
-            <div class="flex flex-col gap-2 w-11/12 max-w-72 sm:w-11/12 sm:text-s z-50 shadow-lg">
+            {/* Profile Button */}
+            <div class="flex flex-col gap-2 w-11/12 max-w-72 sm:w-11/12 sm:text-s z-50 shadow-lg" onClick={handleProfileClick}>
                 <div
                     class="succsess-alert cursor-default flex items-center justify-between w-full h-12 sm:h-14 rounded-lg background-app-dark px-[10px]"
                 >
                     <div class="flex gap-2 justify-center items-center">
                         <div class="text-[#baa6f2] background-app-dark backdrop-blur-xl p-1 rounded-lg">
-                            <BookmarkIcon />
+                            <Person3Icon />
                         </div>
-                        <p class="text-white text-xl">Bookmark</p>
+                        <p class="text-white text-xl">Profile</p>
                     </div>
                 </div>
             </div>
@@ -98,20 +101,7 @@ export default function Sidebar() {
                         <div class="text-[#baa6f2] background-app-dark backdrop-blur-xl p-1 rounded-lg">
                             <SettingsIcon />
                         </div>
-                        <p class="text-white text-xl">Settings</p>
-                    </div>
-                </div>
-            </div>
-            {/* Profile Button */}
-            <div class="flex flex-col gap-2 w-11/12 max-w-72 sm:w-11/12 sm:text-s z-50 shadow-lg">
-                <div
-                    class="succsess-alert cursor-default flex items-center justify-between w-full h-12 sm:h-14 rounded-lg background-app-dark px-[10px]"
-                >
-                    <div class="flex gap-2 justify-center items-center">
-                        <div class="text-[#baa6f2] background-app-dark backdrop-blur-xl p-1 rounded-lg">
-                            <Person3Icon />
-                        </div>
-                        <p class="text-white text-xl">Profile</p>
+                        <p class="text-white text-xl">About Us</p>
                     </div>
                 </div>
             </div>

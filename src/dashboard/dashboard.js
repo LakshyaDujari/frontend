@@ -8,6 +8,7 @@ export default function Dashboard() {
     useEffect(() => {
       document.body.style.backgroundColor = '#fbfaff';
     }, [])
+    
     return (
       <>
         <div className="flex flex-col relative w-screen"></div>

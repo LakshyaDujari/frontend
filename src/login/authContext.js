@@ -133,7 +133,6 @@ const [user, setUser] = useState(() =>
     useEffect(() => {
         try{
             if (authTokens.access) {
-                console.log(authTokens);
                 setUser(jwtDecode(authTokens.access))
             }
             setLoading(false)

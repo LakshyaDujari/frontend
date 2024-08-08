@@ -26,13 +26,12 @@ const useAxios = () => {
     localStorage.setItem("token", response.data.access);
     localStorage.setItem("authTokens", response.data.access);
     if(response.data === null || response.data === undefined){
+      return req;
     }
     setAuthTokens({
       ...authTokens,
       access: response.data.access
     });
-    if(response.data === null || response.data === undefined){
-    }
     setUser(jwtDecode(response.data.refresh));
 
     req.headers.Authorization = `Bearer ${response.data.access}`;

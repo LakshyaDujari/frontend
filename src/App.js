@@ -5,7 +5,10 @@ import Error from './Error/errorPage';
 import Dashboard from './dashboard/dashboard';
 import PrivateRoute from './login/protectedRoute';
 import { AuthProvider } from './login/authContext';
-import NewLoginForm from './login/newLoginForm';
+import NewLoginForm from './login/loginForm';
+import ForgetPassword from './login/forgetPass';
+import Profile from './dashboard/profile';
+
 function App() {
   return (
     <>
@@ -15,9 +18,10 @@ function App() {
         <AuthProvider>
             <Routes>
                 <Route path="/" default name="Login" element={<NewLoginForm/>} />
-                {/* <Route path="/newLogin" default name="LoginCopy" element={<NewLoginForm/>} /> */}
+                <Route path="/forgot" default name="ForgotPassword" element={<ForgetPassword/>} />
                 <Route element={<PrivateRoute />}>
                     <Route path="/dashboard" element={<Dashboard />} />
+                    <Route path="/profile" element={<Profile/>} />
                     {/* <Route path="/socket" element={<DemoSocketComponent />}/> */}
                 </Route>
                 <Route path="/error" element={<Error/>} />
