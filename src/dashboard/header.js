@@ -102,12 +102,12 @@ export default function Header() {
         <>
             <nav className="bg-white border-gray-200 dark:bg-gray-900">
                 <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-                    <a href="https://flowbite.com/" className="flex items-center space-x-3 rtl:space-x-reverse">
+                    <p className="flex items-center space-x-3 rtl:space-x-reverse" onClick={()=>{navigate('/dashboard');}}>
                         <HeadsetMicIcon style={{ color: '#baa6f2' }} />
                         <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
                             Chat<span style={{ color: '#baa6f2' }}>Box</span>
                         </span>
-                    </a>
+                    </p>
                     <div className="flex md:order-2">
                         <button
                             type="button"

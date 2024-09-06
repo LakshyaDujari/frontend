@@ -114,7 +114,7 @@ export default function NewLoginForm() {
                 <div className="nlogin-toggle-container">
                 <div className="nlogin-toggle">
                     <div className="nlogin-toggle-panel nlogin-toggle-left">
-                    <h1 className="text-3xl font-bold text-white text-center">Welcome to<span style={{color:'#6147a7e8',fontSize:'2rem'}}> ChatBox </span></h1>
+                    <h1 className="text-3xl font-bold text-white text-center">Welcome to<span style={{color:'#cfbdffe8',fontSize:'2rem'}}> ChatBox </span></h1>
                     {/* <h1 className='font-extrabold text-3xl'>Welcome Back!</h1> */}
                     <p>Enter your personal details to use all of site features</p>
                     <button id="login" className='nlogin-hidden' onClick={handleLoginClick}>
