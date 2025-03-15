@@ -13,32 +13,7 @@ export default function Message() {
     const [currentGroup, setCurrentGroup] = useState(0);
     const [boxClick,setBoxClick] = useState(false);
     const [groupMssages, setGroupMessages] = useState([]);
-    const [msg, setMsg] = useState('');
     const axiosInstance = useAxios();
-    
-    const handleMsgSubmit = async (e) => {
-        e.preventDefault();
-        try{
-            const payload = {
-                group_name: messages[currentGroup].group_name,
-                message: msg
-            }
-            const response = await axiosInstance.post('/messaging/sendmsg/',payload);
-            if(response.status === 200){
-                groupMssages.push({
-                    body: msg,
-                    author: localStorage.getItem('username'),
-                    timestamp: new Date().toISOString().slice(0, 19).replace('T', ' ')
-                })
-                setGroupMessages([...groupMssages]);
-                setMsg('');
-            }
-        }catch(error){
-            const message = error.response.data.message;
-            toast.error(message);
-        }
-    
-    }
 
     useEffect(() => {
         if(online){

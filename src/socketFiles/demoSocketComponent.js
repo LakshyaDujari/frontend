@@ -15,6 +15,7 @@ const ChatWidget = ({groupMssages,setGroupMessages,messages,setMessages,currentG
     group_name = messages[currentGroup].group_name;
     const apiPrefix = process.env.REACT_APP_API_PREFIX;
     const wsUrl = `ws://${apiPrefix.replace(/^http:\/\//, '')}/ws/chat/${group_name}/?token=${token}`;
+  
     try{
         socket = new WebSocket(wsUrl);
 
@@ -76,27 +77,27 @@ const ChatWidget = ({groupMssages,setGroupMessages,messages,setMessages,currentG
       {isOpen && (
         <div className="bg-white rounded-lg shadow-xl w-96 h-[32rem] flex flex-col overflow-hidden">
           <div className="bg-[#baa6f2] text-white p-4 flex justify-between items-center">
-            <h3 className="font-semibold">{messages[currentGroup].sender}</h3>
+            <h3 className="font-semibold">{messages[currentGroup].display_name}</h3>
             <button onClick={toggleChat} className="text-white hover:text-gray-200 focus:outline-none">
               <FiX className="w-5 h-5" />
             </button>
           </div>
           <div className="flex-1 p-4 overflow-y-auto">
-            {messages.map((message, index) => (
+            {groupMssages.map((message, index) => (
               <div
                 key={index}
                 className={`mb-4 ${message.sender === 'user' ? 'text-right' : 'text-left'}`}
               >
                 <div
-                  className={`inline-block p-2 rounded-lg ${sys_user === 'msg.author' ? 'bg-blue-100 text-[#5b46a8]' : 'bg-gray-200 text-gray-800'}`}
+                  className={`inline-block p-2 rounded-lg ${sys_user === message.author ? 'bg-blue-100 text-[#5b46a8]' : 'bg-gray-200 text-gray-800'}`}
                 >
                   {message.isFile ? (
                     <div className="flex items-center">
                       <FiPaperclip className="mr-2" />
-                      <span>{message.text}</span>
+                      <span>{message.body}</span>
                     </div>
                   ) : (
-                    message.text
+                    message.body
                   )}
                 </div>
               </div>
