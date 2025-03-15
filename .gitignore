@@ -23,7 +23,6 @@ yarn-debug.log*
 yarn-error.log*
 
 # ssh -i "ChatBox.pem" ubuntu@ec2-13-201-192-150.ap-south-1.compute.amazonaws.com
-# while IFS= read -r file; do
-#   scp -i ChatBox.pem "$file" ubuntu@ec2-13-53-115-210.eu-north-1.compute.amazonaws.com:ChatBox
-# done < file_list.txt 
-#  
+#  while IFS= read -r file; do  rsync -av -e "ssh -i ChatBox.pem" "messaging" ChatBox.pem" ubuntu@ec2-16-171-222-213.eu-north-1.compute.amazonaws.com:ChatBox
+# done < filelist.txt
+# scp -i ChatBox.pem chat/frontend/build ubuntu@ec2-13-50-71-102.eu-north-1.compute.amazonaws.com:ChatBox/frontend 
