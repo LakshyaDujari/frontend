@@ -30,17 +30,17 @@ export default function RequestTile( { id,name,email,selected,boxClick,setGrpMsg
         }
     }
   return (
-    <div class="flex flex-row gap-2 w-full text-[12px] z-50 " onClick={handleClick}>
+    <div className="flex flex-row gap-2 w-full text-[12px] z-50 " onClick={handleClick}>
         <div
-            class="succsess-alert cursor-default flex items-center justify-between w-full h-12 sm:h-10 rounded-lg bg-[#232531] px-[10px]"
+            className="succsess-alert cursor-default flex items-center justify-between w-full h-12 sm:h-10 rounded-lg bg-[#232531] px-[10px]"
         >
-            <div class="flex justify-center items-center gap-2">
-                <div class="text-[#baa6f2] bg-white/5 backdrop-blur-xl p-1 rounded-lg">
+            <div className="flex justify-center items-center gap-2">
+                <div className="text-[#baa6f2] bg-white/5 backdrop-blur-xl p-1 rounded-lg">
                     <SendIcon />
                 </div>
                 <div>
-                    <p class="text-white sm:text-xs">{name || 'test'}</p>
-                    <p class="text-gray-500 sm:text-xs sm:hidden">{email || 'test@gmail.com'}</p>
+                    <p className="text-white sm:text-xs">{name || 'test'}</p>
+                    <p className="text-gray-500 sm:text-xs sm:hidden">{email || 'test@gmail.com'}</p>
                 </div>
             </div>
         </div>

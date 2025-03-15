@@ -22,11 +22,11 @@ export default function RequestModal() {
         fetchData();
     }, [requestApis]);
   return (
-    <div class="card-dash shadow-dash p-4 flex flex-col sm:w-full sm:h-2/5">
+    <div className="card-dash shadow-dash p-4 flex flex-col sm:w-full sm:h-2/5">
         <h1 className='text-3xl font-bold text-gray-600 text-center mb-3 mt-2 '> Friend Requests </h1>
         {/* search bar */}
-        <form class="form relative mt-2 w-full">
-            <button class="absolute left-2 -translate-y-1/2 top-1/2 p-1">
+        <form className="form relative mt-2 w-full">
+            <button className="absolute left-2 -translate-y-1/2 top-1/2 p-1">
                 <svg
                 width="17"
                 height="16"
@@ -34,7 +34,7 @@ export default function RequestModal() {
                 xmlns="http://www.w3.org/2000/svg"
                 role="img"
                 aria-labelledby="search"
-                class="w-5 h-5 text-gray-700"
+                className="w-5 h-5 text-gray-700"
                 >
                 <path
                     d="M7.667 12.667A5.333 5.333 0 107.667 2a5.333 5.333 0 000 10.667zM14.334 14l-2.9-2.9"
@@ -46,7 +46,7 @@ export default function RequestModal() {
                 </svg>
             </button>
             <input
-                class=" w-full h-8 input rounded-full px-8 py-3 border-2 border-transparent focus:outline-none focus:border-blue-500 placeholder-gray-400 transition-all duration-300 shadow-md"
+                className=" w-full h-8 input rounded-full px-8 py-3 border-2 border-transparent focus:outline-none focus:border-blue-500 placeholder-gray-400 transition-all duration-300 shadow-md"
                 placeholder="Search..."
                 required=""
                 type="text"

@@ -22,7 +22,6 @@ function App() {
                 <Route element={<PrivateRoute />}>
                     <Route path="/dashboard" element={<Dashboard />} />
                     <Route path="/profile" element={<Profile/>} />
-                    {/* <Route path="/socket" element={<DemoSocketComponent />}/> */}
                 </Route>
                 <Route path="/error" element={<Error/>} />
             </Routes>

@@ -167,12 +167,12 @@ export default function Blog() {
             {/* top cards for stats */}
             <div className="flex flex-row gap-8 justify-center mt-4">
                 <div
-                class="hover:-translate-y-2 group bg-neutral-50 duration-500 w-48 sm:w-32 h-48 sm:h-32 flex text-neutral-600 flex-col justify-center items-center relative rounded-xl overflow-hidden shadow-md"
+                className="hover:-translate-y-2 group bg-neutral-50 duration-500 w-48 sm:w-32 h-48 sm:h-32 flex text-neutral-600 flex-col justify-center items-center relative rounded-xl overflow-hidden shadow-md"
                 >
                 <svg
                     viewBox="0 0 200 200"
                     xmlns="http://www.w3.org/2000/svg"
-                    class="absolute blur z-10 fill-purple-300 duration-500 group-hover:blur-none group-hover:scale-105"
+                    className="absolute blur z-10 fill-purple-300 duration-500 group-hover:blur-none group-hover:scale-105"
                 >
                     <path
                     transform="translate(100 100)"
@@ -180,18 +180,18 @@ export default function Blog() {
                     ></path>
                 </svg>
 
-                <div class="z-20 flex flex-col justify-center items-center">
-                    <span class="font-bold text-6xl ml-2">{friendsCount}</span>
-                    <p class="font-bold">Friends</p>
+                <div className="z-20 flex flex-col justify-center items-center">
+                    <span className="font-bold text-6xl ml-2">{friendsCount}</span>
+                    <p className="font-bold">Friends</p>
                 </div>
                 </div>
                 <div
-                class="hover:-translate-y-2 group bg-neutral-50 duration-500 w-48 h-48 sm:w-32 sm:h-32 flex text-neutral-600 flex-col justify-center items-center relative rounded-xl overflow-hidden shadow-md"
+                className="hover:-translate-y-2 group bg-neutral-50 duration-500 w-48 h-48 sm:w-32 sm:h-32 flex text-neutral-600 flex-col justify-center items-center relative rounded-xl overflow-hidden shadow-md"
                 >
                 <svg
                     viewBox="0 0 200 200"
                     xmlns="http://www.w3.org/2000/svg"
-                    class="absolute blur z-10 fill-purple-300 duration-500 group-hover:blur-none group-hover:scale-105"
+                    className="absolute blur z-10 fill-purple-300 duration-500 group-hover:blur-none group-hover:scale-105"
                 >
                     <path
                     transform="translate(100 100)"
@@ -199,18 +199,18 @@ export default function Blog() {
                     ></path>
                 </svg>
 
-                <div class="z-20 flex flex-col justify-center items-center">
-                    <span class="font-bold text-6xl ml-2">{blogsCount}</span>
-                    <p class="font-bold">Blogs</p>
+                <div className="z-20 flex flex-col justify-center items-center">
+                    <span className="font-bold text-6xl ml-2">{blogsCount}</span>
+                    <p className="font-bold">Blogs</p>
                 </div>
                 </div>
                 <div
-                class="hover:-translate-y-2 group bg-neutral-50 duration-500 w-48 h-48 sm:w-32 sm:h-32 flex text-neutral-600 flex-col justify-center items-center relative rounded-xl overflow-hidden shadow-md"
+                className="hover:-translate-y-2 group bg-neutral-50 duration-500 w-48 h-48 sm:w-32 sm:h-32 flex text-neutral-600 flex-col justify-center items-center relative rounded-xl overflow-hidden shadow-md"
                 >
                 <svg
                     viewBox="0 0 200 200"
                     xmlns="http://www.w3.org/2000/svg"
-                    class="absolute blur z-10 fill-purple-300 duration-500 group-hover:blur-none group-hover:scale-105"
+                    className="absolute blur z-10 fill-purple-300 duration-500 group-hover:blur-none group-hover:scale-105"
                 >
                     <path
                     transform="translate(100 100)"
@@ -218,32 +218,32 @@ export default function Blog() {
                     ></path>
                 </svg>
 
-                <div class="z-20 flex flex-col justify-center items-center">
-                    <span class="font-bold text-6xl ml-2">{friendsCount}</span>
-                    <p class="font-bold">Groups</p>
+                <div className="z-20 flex flex-col justify-center items-center">
+                    <span className="font-bold text-6xl ml-2">{friendsCount}</span>
+                    <p className="font-bold">Groups</p>
                 </div>
                 </div>
             </div>
             {/* blog posting */}
-            <div class="bg-white border border-slate-200 grid grid-cols-6 gap-2 rounded-xl p-2 text-sm mt-5 w-4/5">
-                <h1 class="text-center text-slate-200 text-xl font-bold col-span-6">Share Your Thoughts</h1>
+            <div className="bg-white border border-slate-200 grid grid-cols-6 gap-2 rounded-xl p-2 text-sm mt-5 w-4/5">
+                <h1 className="text-center text-slate-200 text-xl font-bold col-span-6">Share Your Thoughts</h1>
                 <input 
                     type="text" 
                     name='title'
                     value={posts.title}
                     placeholder="Title" 
                     onChange={handlePostInput}
-                    class="bg-slate-100 text-slate-600 border border-slate-200 col-span-6 outline-none rounded-lg p-2 duration-300 focus:border-slate-600"
+                    className="bg-slate-100 text-slate-600 border border-slate-200 col-span-6 outline-none rounded-lg p-2 duration-300 focus:border-slate-600"
                 />
                 <textarea 
                     placeholder="Your Thoughts...." 
-                    class="bg-slate-100 text-slate-600 h-28 placeholder:text-slate-600 placeholder:opacity-50 border border-slate-200 col-span-6 resize-none outline-none rounded-lg p-2 duration-300 focus:border-slate-600"
+                    className="bg-slate-100 text-slate-600 h-28 placeholder:text-slate-600 placeholder:opacity-50 border border-slate-200 col-span-6 resize-none outline-none rounded-lg p-2 duration-300 focus:border-slate-600"
                     name='content'
                     value={posts.content}
                     onChange={handlePostInput}
                     >
                     </textarea>
-                <button class="fill-slate-600 col-span-1 flex justify-center items-center rounded-lg p-2 duration-300 bg-slate-100 hover:border-slate-600 focus:fill-blue-200 focus:bg-purple-400 border border-slate-200"
+                <button className="fill-slate-600 col-span-1 flex justify-center items-center rounded-lg p-2 duration-300 bg-slate-100 hover:border-slate-600 focus:fill-blue-200 focus:bg-purple-400 border border-slate-200"
                     onClick={handleButtonClick}>
                           <input
                             type="file"
@@ -253,13 +253,13 @@ export default function Blog() {
                         />
                     <UploadFileIcon/>
                 </button>
-                <button class="fill-slate-600 col-span-1 flex justify-center items-center rounded-lg p-2 duration-300 bg-slate-100 hover:border-slate-600 focus:fill-blue-200 focus:bg-purple-400 border border-slate-200"
+                <button className="fill-slate-600 col-span-1 flex justify-center items-center rounded-lg p-2 duration-300 bg-slate-100 hover:border-slate-600 focus:fill-blue-200 focus:bg-purple-400 border border-slate-200"
                     onClick={handleimagedelete}
                     >
                     <DeleteIcon/>
                 </button>
-                <span class="col-span-2"></span>
-                <button class="bg-slate-100 stroke-slate-600 border border-slate-200 col-span-2 flex justify-center rounded-lg p-2 duration-300 hover:border-slate-600 hover:text-white focus:stroke-blue-200 focus:bg-purple-400"
+                <span className="col-span-2"></span>
+                <button className="bg-slate-100 stroke-slate-600 border border-slate-200 col-span-2 flex justify-center rounded-lg p-2 duration-300 hover:border-slate-600 hover:text-white focus:stroke-blue-200 focus:bg-purple-400"
                     onClick={handleBlogPost}
                     >
                     <svg fill="none" viewBox="0 0 24 24" height="30px" width="30px" xmlns="http://www.w3.org/2000/svg">

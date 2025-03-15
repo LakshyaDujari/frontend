@@ -51,57 +51,57 @@ export default function Sidebar() {
     }
 
     return (
-        <div class="flex flex-col w-1/4 h-full bg-slate-50 gap-4 p-4 rounded-2xl">
-            <div class="group before:hover:scale-95 before:hover:h-72 before:hover:w-full max-w-72 before:hover:h-44 before:hover:rounded-b-2xl before:transition-all before:duration-500 before:content-[''] before:w-full before:h-24 before:rounded-t-2xl before:bg-gradient-to-bl from-purple-200 via-purple-300 to-purple-400 before:absolute before:top-0 w-full h-72 relative bg-slate-50 flex flex-col items-center justify-center gap-2 text-center rounded-2xl overflow-hidden shadow-dash">
-                <div class="w-1/3 h-1/3 background-app-dark mt-8 rounded-full border-4 border-slate-50 z-10 group-hover:scale-150 group-hover:-translate-x-24  group-hover:-translate-y-20 transition-all duration-500"></div>
-                <div class="z-10  group-hover:-translate-y-10 transition-all duration-500">
-                    <span class="text-2xl sm:text-lg font-semibold group-hover:text-white transition-all duration-75">{user || 'Guest'}</span>
+        <div className="flex flex-col w-1/4 h-full bg-slate-50 gap-4 p-4 rounded-2xl">
+            <div className="group before:hover:scale-95 before:hover:h-72 before:hover:w-full max-w-72 before:hover:h-44 before:hover:rounded-b-2xl before:transition-all before:duration-500 before:content-[''] before:w-full before:h-24 before:rounded-t-2xl before:bg-gradient-to-bl from-purple-200 via-purple-300 to-purple-400 before:absolute before:top-0 w-full h-72 relative bg-slate-50 flex flex-col items-center justify-center gap-2 text-center rounded-2xl overflow-hidden shadow-dash">
+                <div className="w-1/3 h-1/3 background-app-dark mt-8 rounded-full border-4 border-slate-50 z-10 group-hover:scale-150 group-hover:-translate-x-24  group-hover:-translate-y-20 transition-all duration-500"></div>
+                <div className="z-10  group-hover:-translate-y-10 transition-all duration-500">
+                    <span className="text-2xl sm:text-lg font-semibold group-hover:text-white transition-all duration-75">{user || 'Guest'}</span>
                     <p className=' group-hover:text-white sm:text-xs transition-all duration-75'>{email || 'guest@example.com'}</p>
                     <p className=' group-hover:text-white sm:text-xs transition-all duration-75'>{bio || 'guest@example.com'}</p>
                 </div>
                 {/* Follow Button */}
                 {!isFriend && (
-                    <h1 class="background-app-dark px-4 py-1 text-slate-50 rounded-md z-10 hover:scale-125 transition-all duration-500 hover:bg-[#564592]"
+                    <h1 className="background-app-dark px-4 py-1 text-slate-50 rounded-md z-10 hover:scale-125 transition-all duration-500 hover:bg-[#564592]"
                     onClick={handleInvite}>Follow</h1>
                 )}
             </div>
             {/* home Button */}
-            <div class="flex flex-col gap-2 w-11/12 max-w-72 sm:w-11/12 sm:text-s z-50 shadow-lg mt-4 " 
+            <div className="flex flex-col gap-2 w-11/12 max-w-72 sm:w-11/12 sm:text-s z-50 shadow-lg mt-4 " 
             onClick={handleHomeClick}>
                 <div
-                    class="succsess-alert cursor-default flex items-center justify-between w-full h-12 sm:h-14 rounded-lg background-app-dark px-[10px]"
+                    className="succsess-alert cursor-default flex items-center justify-between w-full h-12 sm:h-14 rounded-lg background-app-dark px-[10px]"
                 >
-                    <div class="flex gap-2 justify-center items-center">
-                        <div class="text-[#baa6f2] background-app-dark backdrop-blur-xl p-1 rounded-lg">
+                    <div className="flex gap-2 justify-center items-center">
+                        <div className="text-[#baa6f2] background-app-dark backdrop-blur-xl p-1 rounded-lg">
                             <HomeIcon />
                         </div>
-                        <p class="text-white text-xl">Home</p>
+                        <p className="text-white text-xl">Home</p>
                     </div>
                 </div>
             </div>
             {/* Profile Button */}
-            <div class="flex flex-col gap-2 w-11/12 max-w-72 sm:w-11/12 sm:text-s z-50 shadow-lg" onClick={handleProfileClick}>
+            <div className="flex flex-col gap-2 w-11/12 max-w-72 sm:w-11/12 sm:text-s z-50 shadow-lg" onClick={handleProfileClick}>
                 <div
-                    class="succsess-alert cursor-default flex items-center justify-between w-full h-12 sm:h-14 rounded-lg background-app-dark px-[10px]"
+                    className="succsess-alert cursor-default flex items-center justify-between w-full h-12 sm:h-14 rounded-lg background-app-dark px-[10px]"
                 >
-                    <div class="flex gap-2 justify-center items-center">
-                        <div class="text-[#baa6f2] background-app-dark backdrop-blur-xl p-1 rounded-lg">
+                    <div className="flex gap-2 justify-center items-center">
+                        <div className="text-[#baa6f2] background-app-dark backdrop-blur-xl p-1 rounded-lg">
                             <Person3Icon />
                         </div>
-                        <p class="text-white text-xl">Profile</p>
+                        <p className="text-white text-xl">Profile</p>
                     </div>
                 </div>
             </div>
             {/* Settings Button */}
-            <div class="flex flex-col gap-2 w-11/12 max-w-72 sm:w-11/12 sm:text-s z-50 shadow-lg">
+            <div className="flex flex-col gap-2 w-11/12 max-w-72 sm:w-11/12 sm:text-s z-50 shadow-lg">
                 <div
-                    class="succsess-alert cursor-default flex items-center justify-between w-full h-12 sm:h-14 rounded-lg background-app-dark px-[10px]"
+                    className="succsess-alert cursor-default flex items-center justify-between w-full h-12 sm:h-14 rounded-lg background-app-dark px-[10px]"
                 >
-                    <div class="flex gap-2 justify-center items-center">
-                        <div class="text-[#baa6f2] background-app-dark backdrop-blur-xl p-1 rounded-lg">
+                    <div className="flex gap-2 justify-center items-center">
+                        <div className="text-[#baa6f2] background-app-dark backdrop-blur-xl p-1 rounded-lg">
                             <SettingsIcon />
                         </div>
-                        <p class="text-white text-xl">About Us</p>
+                        <p className="text-white text-xl">About Us</p>
                     </div>
                 </div>
             </div>
