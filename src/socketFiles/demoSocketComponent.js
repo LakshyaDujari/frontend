@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { FiMessageSquare, FiPaperclip, FiSend, FiX } from 'react-icons/fi';
 import data from '@emoji-mart/data';
 import Picker from '@emoji-mart/react';
+import { toast } from "react-toastify";
 
 const ChatWidget = ({groupMssages,setGroupMessages,messages,setMessages,currentGroup}) => {
     const [isOpen, setIsOpen] = useState(true);
@@ -34,6 +35,10 @@ const ChatWidget = ({groupMssages,setGroupMessages,messages,setMessages,currentG
     }   
     const handleSubmit = (e) => {
         // e.preventDefault();
+        if(inputMessage === ""){
+            toast.error("Message cannot be empty");
+            return;
+        }
         try{
             const messageData = JSON.stringify({
                 body: inputMessage,

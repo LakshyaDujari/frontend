@@ -20,22 +20,6 @@ export const AuthProvider = ({ children }) => {
     refresh: localStorage.getItem("refresh") ? localStorage.getItem("refresh") : null
   });
 
-// const [authTokens, setAuthTokens] = useState(() =>
-//     localStorage.getItem("token")
-//         ? localStorage.getItem("token")
-//         : null
-// );
-
-// const [user, setUser] = useState(() => {
-//     const token = localStorage.getItem("token");
-//     try {
-//         return token ? jwtDecode(token) : null;
-//     } catch (error) {
-//         console.error("Failed to decode token from localStorage", error);
-//         return null;
-//     }
-// });
-
 const [user, setUser] = useState(() => 
 
     localStorage.getItem("token")

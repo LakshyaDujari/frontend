@@ -88,13 +88,6 @@ export default function Message() {
                 }
             </div>
         </div>
-        {/* Message send container */}
-        {( messages.length > 0 && !boxClick )&&        
-            <div className='msg-container fixed bottom-0 left-24 w-80 h-14 z-10 flex justify-start place-items-start flex-row p-5 gap-2'> 
-                <FiberManualRecordIcon className={`text-${dcolor}-500 relative`}/>
-                <h1 className='text-sm text-gray-600'>{messages[currentGroup].friend}</h1>
-            </div>
-        }
         {( messages.length >= 0 && boxClick ) && 
             
                 <DemoSocketComponent
